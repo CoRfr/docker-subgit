@@ -10,7 +10,8 @@ RUN ( apt-get update && \
 RUN ( wget -O subgit.deb -q http://old.subgit.com/download/subgit_${SUBGIT_VERSION}_all.deb && \
       dpkg -i subgit.deb )
 
-VOLUME /git
-
-CMD [ "subgit", "install", "/git" ]
+VOLUME /repo.git
+WORKDIR /repo.git
+USER 1000
+CMD [ "subgit", "install", "." ]
 
