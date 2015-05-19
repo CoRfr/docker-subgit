@@ -1,6 +1,8 @@
-== Subgit Docker Image ==
+Subgit Docker Image
+===================
 
-=== What is subgit ? ===
+What is subgit ?
+----------------
 
 SubGit is a tool for a smooth, stress-free SVN to Git migration.
 Create writable Git mirror of a local or remote Subversion repository and use both Subversion and Git as long as you like. 
@@ -9,7 +11,8 @@ You may also do a fast one-time import from Subversion to Git or use SubGit with
 SubGit is a software from http://www.subgit.com/.
 This image is simple way to deploy a subgit service to migrate.
 
-=== How ? ===
+How ?
+-----
 
 Image: [corfr/subgit](https://registry.hub.docker.com/u/corfr/subgit/)
 
@@ -21,3 +24,6 @@ docker exec --name "subgit-myrepo" --volume /local/folder/myrepo.git:/repo.git c
 ```
 
 You can use the 'post-update' Git hook to eventually upload changes.
+
+This image does not take care of assisting the subgit configuration process for a repository.
+You can eventually execute directly the image to do subgit commands directly.
