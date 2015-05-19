@@ -13,5 +13,6 @@ RUN ( wget -O subgit.deb -q http://old.subgit.com/download/subgit_${SUBGIT_VERSI
 VOLUME /repo.git
 WORKDIR /repo.git
 USER 1000
-CMD [ "subgit", "install", "." ]
 
+ADD entrypoint.sh /
+ENTRYPOINT /entrypoint.sh

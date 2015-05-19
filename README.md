@@ -13,9 +13,11 @@ This image is simple way to deploy a subgit service to migrate.
 
 Image: [corfr/subgit](https://registry.hub.docker.com/u/corfr/subgit/)
 
-You need to expose your existing Git folder as the volume /git.
+You need to expose your existing Git folder as the volume /repo.git.
 
 This will start the translation using configuration stored in the `myrepo.git/subgit` folder:
 ```
-docker exec --name "subgit-myrepo" --volume /local/folder/myrepo.git:/git corfr/subgit
+docker exec --name "subgit-myrepo" --volume /local/folder/myrepo.git:/repo.git corfr/subgit
 ```
+
+You can use the 'post-update' Git hook to eventually upload changes.
