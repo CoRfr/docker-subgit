@@ -58,7 +58,7 @@ while true; do
 
     # Fallback if incron is not working (NFS for instance)
     if [ -x "/repo.git/hooks/post-svn-update" ]; then
-        /run-hook.sh post-svn-update
+        sudo -u $SUBGIT_USER /repo.git/hooks/post-svn-update
     fi
 
     sleep 30

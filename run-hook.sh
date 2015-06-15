@@ -1,9 +1,13 @@
 #!/bin/bash
 
 CURRENT_SVN=$(cat /repo.git/refs/svn/map)
-LAST_SVN=$(cat /tmp/last-svn-map)
+unset LAST_SVN
 
-if [[ "$LAST_SVN" == $CURRENT_SVN ]]; then
+if [ -e "/tmp/last-svn-map" ]; then
+    LAST_SVN=$(cat /tmp/last-svn-map)
+fi
+
+if [[ "$LAST_SVN" == "$CURRENT_SVN" ]]; then
     exit 0
 fi
 
