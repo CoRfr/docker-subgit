@@ -15,7 +15,8 @@ chown $SUBGIT_USER $SUBGIT_HOME
 
 cd /repo.git
 
-sudo -u $SUBGIT_USER subgit install .
+export _JAVA_OPTIONS='-Djsse.enableSNIExtension=false'
+sudo -u $SUBGIT_USER -E subgit install .
 if [ $? -ne 0 ]; then
     echo "Error while executing subgit install"
     exit 1
