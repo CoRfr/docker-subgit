@@ -10,7 +10,7 @@ RUN ( apt-get update && \
                          vim incron ) 
 
 # Download from official website and install
-RUN ( wget -O subgit.deb -q http://old.subgit.com/interim/${SUBGIT_VERSION}-EAP${SUBGIT_EAP_REV}/subgit-${SUBGIT_VERSION}-EAP-${SUBGIT_EAP_BUILD}_all.deb && \
+RUN ( wget -O subgit.deb -q http://old.subgit.com/interim/${SUBGIT_VERSION}-EAP${SUBGIT_EAP_REV}/subgit_${SUBGIT_VERSION}-EAP-${SUBGIT_EAP_BUILD}_all.deb && \
       dpkg -i subgit.deb )
 
 VOLUME /repo.git
