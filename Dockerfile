@@ -13,6 +13,9 @@ RUN ( apt-get update && \
 RUN ( wget -O subgit.deb -q http://old.subgit.com/interim/${SUBGIT_VERSION}-EAP${SUBGIT_EAP_REV}/subgit_${SUBGIT_VERSION}-EAP-${SUBGIT_EAP_BUILD}_all.deb && \
       dpkg -i subgit.deb )
 
+# Fix SNI error with Java 7
+RUN ( sed -i '/^EXTRA_JVM_ARGUMENTS.*/a EXTRA_JVM_ARGUMENTS="$EXTRA_JVM_ARGUMENTS -Djsse.enableSNIExtension=false"' /usr/bin/subgit )
+
 VOLUME /repo.git
 WORKDIR /repo.git
 
