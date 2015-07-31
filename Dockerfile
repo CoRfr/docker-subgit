@@ -1,8 +1,6 @@
 FROM ubuntu:14.04
 
 ENV SUBGIT_VERSION      3.0.0
-ENV SUBGIT_EAP_REV      18
-ENV SUBGIT_EAP_BUILD    3262
 
 # Dependencies
 RUN ( apt-get update && \
@@ -10,7 +8,7 @@ RUN ( apt-get update && \
                          vim incron ) 
 
 # Download from official website and install
-RUN ( wget -O subgit.deb -q http://old.subgit.com/interim/${SUBGIT_VERSION}-EAP${SUBGIT_EAP_REV}/subgit_${SUBGIT_VERSION}-EAP-${SUBGIT_EAP_BUILD}_all.deb && \
+RUN ( wget -O subgit.deb -q http://old.subgit.com/download/subgit_${SUBGIT_VERSION}_all.deb && \
       dpkg -i subgit.deb )
 
 # Fix SNI error with Java 7
