@@ -22,7 +22,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-tail -f /repo.git/subgit/logs/daemon.0.log &
+tail -f -F /repo.git/subgit/logs/daemon.0.log &
 
 if [ -x "/repo.git/hooks/post-svn-update" ]; then
 
