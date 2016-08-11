@@ -20,7 +20,7 @@ You need to expose your existing Git folder as the volume /repo.git.
 
 This will start the translation using configuration stored in the `myrepo.git/subgit` folder:
 ```
-docker exec --name "subgit-myrepo" --volume /local/folder/myrepo.git:/repo.git corfr/subgit
+docker run --name "subgit-myrepo" --volume /local/folder/myrepo.git:/repo.git corfr/subgit
 ```
 
 You can use the 'post-update' Git hook to eventually upload changes.
