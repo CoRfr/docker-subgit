@@ -1,18 +1,16 @@
-FROM ubuntu:14.04
+FROM java:8-jre
 
 ENV SUBGIT_VERSION      3.2.1
 
 # Dependencies
 RUN ( apt-get update && \
-      apt-get install -y git subversion openjdk-7-jre-headless wget \
-                         vim incron ) 
+      apt-get install -y git subversion wget incron sudo && \
+      rm -rf /var/lib/apt/lists/* )
 
 # Download from official website and install
 RUN ( wget -O subgit.deb -q http://old.subgit.com/download/subgit_${SUBGIT_VERSION}_all.deb && \
-      dpkg -i subgit.deb )
-
-# Fix SNI error with Java 7
-RUN ( sed -i '/^EXTRA_JVM_ARGUMENTS.*/a EXTRA_JVM_ARGUMENTS="$EXTRA_JVM_ARGUMENTS -Djsse.enableSNIExtension=false"' /usr/bin/subgit )
+      dpkg -i subgit.deb && \
+      rm -f subgit.deb )
 
 VOLUME /repo.git
 WORKDIR /repo.git
