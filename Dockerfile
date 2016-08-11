@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-ENV SUBGIT_VERSION      3.1.1
+ENV SUBGIT_VERSION      3.2.1
 
 # Dependencies
 RUN ( apt-get update && \
