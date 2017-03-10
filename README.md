@@ -5,7 +5,7 @@ What is subgit ?
 ----------------
 
 SubGit is a tool for a smooth, stress-free SVN to Git migration.
-Create writable Git mirror of a local or remote Subversion repository and use both Subversion and Git as long as you like. 
+Create writable Git mirror of a local or remote Subversion repository and use both Subversion and Git as long as you like.
 You may also do a fast one-time import from Subversion to Git or use SubGit within Atlassian Stash.
 
 SubGit is a software from http://www.subgit.com/.

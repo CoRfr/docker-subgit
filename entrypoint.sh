@@ -43,7 +43,7 @@ if [ -x "/repo.git/hooks/post-svn-update" ]; then
         exit 1
     fi
 fi
-    
+
 while true; do
     DAEMON_PID=$(head -1 /repo.git/subgit/daemon.pid)
     if [ -z "$DAEMON_PID" ]; then

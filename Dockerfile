@@ -1,6 +1,6 @@
 FROM java:8-jre
 
-ENV SUBGIT_VERSION      3.2.1
+ENV SUBGIT_VERSION      3.2.4
 
 # Dependencies
 RUN ( apt-get update && \
