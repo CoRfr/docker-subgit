@@ -4,6 +4,8 @@ SUBGIT_USER=${SUBGIT_USER:-subgit}
 SUBGIT_UID=${SUBGIT_UID:-1000}
 SUBGIT_HOME=${SUBGIT_HOME:-/home/subgit}
 
+CHECK_TIME=${CHECK_TIME:-30}
+
 # Make sure user exist
 if ! grep $SUBGIT_USER /etc/passwd; then
     useradd --no-create-home --home-dir $SUBGIT_HOME --system --uid $SUBGIT_UID --shell /bin/bash $SUBGIT_USER
@@ -59,9 +61,9 @@ while true; do
 
     # Fallback if incron is not working (NFS for instance)
     if [ -x "/repo.git/hooks/post-svn-update" ]; then
-        sudo -u $SUBGIT_USER /repo.git/hooks/post-svn-update
+        sudo -u $SUBGIT_USER -E /repo.git/hooks/post-svn-update
     fi
 
-    sleep 30
+    sleep $CHECK_TIME
 done
 
