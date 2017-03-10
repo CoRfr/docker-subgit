@@ -30,7 +30,7 @@ if [ -x "/repo.git/hooks/post-svn-update" ]; then
 
     if [ -z "$PREVENT_FIRST_RUN" ]; then
         echo "Test post-svn-update hook execution"
-        sudo -u $SUBGIT_USER /repo.git/hooks/post-svn-update
+        sudo -u $SUBGIT_USER -E /repo.git/hooks/post-svn-update
     fi
 
     # Configure incron
